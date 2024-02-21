@@ -28,15 +28,15 @@ body {
 
 .cf-theme {
   --cf-major-keys-fill: #ccdbff;
-  --cf-major-keys-fill-hover: #9fb7ff;
-  --cf-major-keys-fill-selected: #9fb7ff;
+  --cf-major-keys-fill-hover: #7a839e;
+  --cf-major-keys-fill-selected: #7a839e;
   --cf-minor-keys-fill: #ccdbff;
-  --cf-minor-keys-fill-hover: #9fb7ff;
-  --cf-minor-keys-fill-selected: #9fb7ff;
+  --cf-minor-keys-fill-hover: #7a839e;
+  --cf-minor-keys-fill-selected: #7a839e;
   --cf-diminished-keys-fill: #ccdbff;
 
   --cf-stroke-color: #0c1530;
-  --cf-stroke-width: 1px;
+  --cf-stroke-width: 3px;
   --cf-text-color: #0c1530;
 
   cursor: pointer;
