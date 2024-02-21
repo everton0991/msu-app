@@ -10,7 +10,7 @@ const Content = () => {
         <Tab key='circleoffifths' title='Circle of Fifths'>
           <Card>
             <CardBody>
-              <div className='w-[600px] m-auto'>
+              <div className='w-[600px] mt-6 mx-auto'>
                 <CircleOfFifths />
               </div>
 
