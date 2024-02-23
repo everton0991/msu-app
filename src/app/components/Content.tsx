@@ -1,7 +1,8 @@
 'use client';
 
 import { Tabs, Tab, Card, CardBody } from '@nextui-org/react';
-import { CircleOfFifths } from 'react-circle-of-fifths';
+// import { CircleOfFifths } from 'react-circle-of-fifths';
+import CircleOfFifths from './CircleOfFifths';
 
 const Content = () => {
   return (
@@ -10,7 +11,7 @@ const Content = () => {
         <Tab key='circleoffifths' title='Circle of Fifths'>
           <Card>
             <CardBody>
-              <div className='w-[600px] mt-6 mx-auto'>
+              <div className='w-[650px] mt-6 mx-auto'>
                 <CircleOfFifths />
               </div>
 
@@ -77,11 +78,13 @@ const Content = () => {
             </CardBody>
           </Card>
         </Tab>
+
         <Tab key='chords' title='Chords'>
           <Card>
             <CardBody>TBD</CardBody>
           </Card>
         </Tab>
+
         <Tab key='scales' title='Scales and Aperggios'>
           <Card>
             <CardBody>TBD</CardBody>

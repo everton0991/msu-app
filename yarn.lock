@@ -1876,6 +1876,59 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tonaljs/core@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@tonaljs/core/-/core-5.0.0.tgz#13f4cd633a94cce4f5d4254238ebfc0938d9f13a"
+  integrity sha512-vifjXX+xKidK+q1xGgcfGX79HtIMydXp1NrdGG5VshYHC3TRpVNti4HJDb/6qOjokQp9as/iOCyaAmcWIq0ZUA==
+  dependencies:
+    "@tonaljs/pitch" "5.0.2"
+    "@tonaljs/pitch-distance" "5.0.3"
+    "@tonaljs/pitch-interval" "6.0.0"
+    "@tonaljs/pitch-note" "6.0.0"
+
+"@tonaljs/midi@4.9.3":
+  version "4.9.3"
+  resolved "https://registry.yarnpkg.com/@tonaljs/midi/-/midi-4.9.3.tgz#102ec9dd1923f38878defefeced0efe459481e74"
+  integrity sha512-sz6XrX6qoYSW3yDpR0K5JhYpsvlzrIJYFfRiOdf4kmnTPAewYyg7f8nLRMl502lBNCt80Bktx4mDHXaL6tWVKw==
+  dependencies:
+    "@tonaljs/core" "5.0.0"
+
+"@tonaljs/note@^4.10.3":
+  version "4.10.3"
+  resolved "https://registry.yarnpkg.com/@tonaljs/note/-/note-4.10.3.tgz#4e0e1e5bdfbdbd9d84e9e4edef3e7bb16cdb4f90"
+  integrity sha512-GvNILH91kkBV9ISAHK75gFkI8Jr0mvKRkO/wU1OhUAapnOrNzFS+EqxusKGc2Lz2MLIbVFRIBqWdyhxIwgpSCg==
+  dependencies:
+    "@tonaljs/core" "5.0.0"
+    "@tonaljs/midi" "4.9.3"
+
+"@tonaljs/pitch-distance@5.0.3":
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/@tonaljs/pitch-distance/-/pitch-distance-5.0.3.tgz#7d32c0e4533a2a3ea866b709cb3300c64c1782ec"
+  integrity sha512-3sgU93gfNsMX1wAYXraYJyIJMIViXZRE1Fh/OXwbUi6lEX/iLRmFVSz37ObnaRaOz0pVm+uUhvW2iKy8QtOWpw==
+  dependencies:
+    "@tonaljs/pitch" "5.0.2"
+    "@tonaljs/pitch-interval" "6.0.0"
+    "@tonaljs/pitch-note" "6.0.0"
+
+"@tonaljs/pitch-interval@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@tonaljs/pitch-interval/-/pitch-interval-6.0.0.tgz#0a4fb94d9bbb8094fad58fa772620e4e92c3f12a"
+  integrity sha512-0iaFWbgshYWjfmdxzF8jNmTqsNK2krwn+FqDRZb8vEsfaSNC8Jek0f5wYcE2to+7f0P5jJlJnj8CUGvlfKIT5A==
+  dependencies:
+    "@tonaljs/pitch" "5.0.2"
+
+"@tonaljs/pitch-note@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@tonaljs/pitch-note/-/pitch-note-6.0.0.tgz#dc12c753042fd62d717a61647417b456481da5ff"
+  integrity sha512-m4Ei7zwSsKwotVfnodA7m1SR7zD5NNIea+V7Mo35EcK32ZJBg+SvxdwgfNNdLO8bkDbVrZIgVYqeP3R3Jq7VFQ==
+  dependencies:
+    "@tonaljs/pitch" "5.0.2"
+
+"@tonaljs/pitch@5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@tonaljs/pitch/-/pitch-5.0.2.tgz#ca2dcd60b99e90536f52293d2491187edfbc9967"
+  integrity sha512-mxaXJPPe+LIJdjzpZEl8I8Wx3dEvlzkBbsr2Ltwc2dTAdnErAZ5R0TxVq2egF27lMvQN2QPQPWI9iDPPdVUmrg==
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
