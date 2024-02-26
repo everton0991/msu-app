@@ -7,72 +7,84 @@ const CIRCLE_OF_FIFTHS_DATA = [
     relativeMinor: 'F#m',
     flats: 0,
     sharps: 3,
+    diminished: 'G#ø',
   },
   {
     note: 'E',
     relativeMinor: 'C#m',
     flats: 0,
     sharps: 4,
+    diminished: 'D#ø',
   },
   {
     note: 'B',
     relativeMinor: 'G#m',
     flats: 0,
     sharps: 5,
+    diminished: 'A#ø',
   },
   {
-    note: 'Gb/F#',
-    relativeMinor: 'Ebm/D#m',
-    flats: 0,
-    sharps: 6,
+    note: 'Gb',
+    relativeMinor: 'Ebm',
+    flats: 6,
+    sharps: 0,
+    diminished: 'Fø',
   },
   {
     note: 'Db',
     relativeMinor: 'Bbm',
     flats: 5,
     sharps: 0,
+    diminished: 'Cø',
   },
   {
     note: 'Ab',
     relativeMinor: 'Fm',
     flats: 4,
     sharps: 0,
+    diminished: 'Gø',
   },
   {
     note: 'Eb',
     relativeMinor: 'Cm',
     flats: 3,
     sharps: 0,
+    diminished: 'Dø',
   },
   {
     note: 'Bb',
     relativeMinor: 'Gm',
     flats: 2,
     sharps: 0,
+    diminished: 'Aø',
   },
   {
     note: 'F',
     relativeMinor: 'Dm',
     flats: 1,
     sharps: 0,
+    diminished: 'Eø',
   },
   {
     note: 'C',
     relativeMinor: 'Am',
     flats: 0,
     sharps: 0,
+    diminished: 'Bø',
   },
   {
     note: 'G',
     relativeMinor: 'Em',
     flats: 0,
     sharps: 1,
+    diminished: 'F#ø',
   },
   {
     note: 'D',
     relativeMinor: 'Bm',
     flats: 0,
     sharps: 2,
+    diminished: 'C#ø',
   },
 ];
 
@@ -174,7 +186,7 @@ const CircleOfFifths = () => {
                 x={xBound}
                 y={yBound}
                 r0={160}
-                r1={110}
+                r1={120}
                 d0={index * 30}
                 d1={(index + 1) * 30 + 1}
                 color='#6918b4'
@@ -188,11 +200,26 @@ const CircleOfFifths = () => {
                 key={index}
                 x={xBound}
                 y={yBound}
-                r0={110}
-                r1={50}
+                r0={120}
+                r1={80}
                 d0={index * 30}
                 d1={(index + 1) * 30 + 1}
                 color='#36117e'
+              />
+            );
+          })}
+
+          {data.map((_value, index) => {
+            return (
+              <CircleOfFifthsWedge
+                key={index}
+                x={xBound}
+                y={yBound}
+                r0={80}
+                r1={40}
+                d0={index * 30}
+                d1={(index + 1) * 30 + 1}
+                color='#1F074E'
               />
             );
           })}
@@ -224,7 +251,7 @@ const CircleOfFifths = () => {
             const [center_x, center_y] = polarToCartesian(
               xBound,
               yBound,
-              135,
+              140,
               i * 30
             );
 
@@ -249,7 +276,7 @@ const CircleOfFifths = () => {
             const [center_x, center_y] = polarToCartesian(
               xBound,
               yBound,
-              80,
+              100,
               i * 30
             );
 
@@ -265,7 +292,32 @@ const CircleOfFifths = () => {
                   fill: 'white',
                 }}
               >
-                {v.relativeMinor.split('/')[0]}
+                {v.relativeMinor}
+              </text>
+            );
+          })}
+
+          {...CIRCLE_OF_FIFTHS_DATA.map((v, i) => {
+            const [center_x, center_y] = polarToCartesian(
+              xBound,
+              yBound,
+              60,
+              i * 30
+            );
+
+            return (
+              <text
+                key={`${v.note}${v.diminished}`}
+                x={center_x}
+                y={center_y}
+                style={{
+                  textAnchor: 'middle',
+                  dominantBaseline: 'central',
+                  fontSize: 10,
+                  fill: 'white',
+                }}
+              >
+                {v.diminished}
               </text>
             );
           })}
