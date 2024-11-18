@@ -1,10 +1,37 @@
 'use client';
 
+import { useEffect } from 'react';
 import { Tabs, Tab, Card, CardBody } from '@nextui-org/react';
-// import { CircleOfFifths } from 'react-circle-of-fifths';
 import CircleOfFifths from './CircleOfFifths';
+import Library from './Library';
+import { redirect } from 'next/navigation';
+import { getToken } from '@/app/actions';
+import { RequestCookie } from 'next/dist/compiled/@edge-runtime/cookies';
 
-const Content = () => {
+const Content = ({
+  authUrl,
+  codeVerifier,
+  code,
+}: {
+  authUrl: string;
+  codeVerifier?: RequestCookie | undefined;
+  code: string;
+}) => {
+  useEffect(() => {
+    if (codeVerifier) {
+      redirect(authUrl);
+    }
+  }, [authUrl, codeVerifier]);
+
+  useEffect(() => {
+    const fetchToken = async () => {
+      const token = await getToken(code);
+      console.log({ token });
+    };
+
+    fetchToken().catch(console.error);
+  }, [code]);
+
   return (
     <div className='flex w-full h-min-full flex-col'>
       <Tabs aria-label='Options'>
@@ -88,6 +115,14 @@ const Content = () => {
         <Tab key='scales' title='Scales and Aperggios'>
           <Card>
             <CardBody>TBD</CardBody>
+          </Card>
+        </Tab>
+
+        <Tab key='library' title='Music Library'>
+          <Card>
+            <CardBody>
+              <Library />
+            </CardBody>
           </Card>
         </Tab>
       </Tabs>
