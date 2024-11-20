@@ -1,23 +1,9 @@
 import { useMessages } from '@/hooks/gemini/useMessages';
 import { semanticColors } from '@nextui-org/react';
-import Image from 'next/image';
-import { UserCircle, ChatDots } from 'solar-icon-set';
+import { UserCircle } from 'solar-icon-set';
 
 const MessagesList = () => {
   const { messages, isLoadingAnswer } = useMessages();
-
-  if (!messages.length) {
-    return (
-      <div className='w-full flex justify-center items-center'>
-        <Image
-          src='/assets/png/hand-drawn-illustration.png'
-          alt='Empty State'
-          width={500}
-          height={500}
-        />
-      </div>
-    );
-  }
 
   return (
     <div>
