@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 const MessageForm = () => {
   const [message, setMessage] = useState('');
-  const { addMessage } = useMessages();
+  const { addMessage, isLoadingAnswer } = useMessages();
 
   const handleSubmit = async (e: any) => {
     e?.preventDefault();
@@ -19,13 +19,15 @@ const MessageForm = () => {
         label='Message'
         placeholder='Type your message'
         value={message}
+        disabled={isLoadingAnswer}
         onChange={(e: any) => setMessage(e.target.value)}
+        onKeyUp={(e) => (e.key === 'Enter' ? handleSubmit(e) : null)}
         autoFocus
       />
 
       <Button
         size='lg'
-        isDisabled={!message}
+        isDisabled={!message || isLoadingAnswer}
         className='bg-gradient-to-tr from-[#9fb7ff] to-[#9874DC] text-white shadow-lg disabled:'
         onClick={handleSubmit}
       >

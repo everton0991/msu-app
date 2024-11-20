@@ -1,13 +1,21 @@
 import { useMessages } from '@/hooks/gemini/useMessages';
 import { semanticColors } from '@nextui-org/react';
+import { useEffect, useRef } from 'react';
 import { UserCircle } from 'solar-icon-set';
+import Markdown from 'react-markdown';
 
 const MessagesList = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
   const { messages, isLoadingAnswer } = useMessages();
 
+  useEffect(() => {
+    scrollRef.current?.lastElementChild?.scrollIntoView();
+  }, [messages]);
+
+  // TODO - Make height relative to screen
   return (
     <div>
-      <div className='w-full h-[500] pb-3 mx-auto pt-8 overflow-scroll'>
+      <div className='w-full h-[600] pb-3 mx-auto pt-8 overflow-scroll'>
         {messages?.map((message, i) => {
           const isUser = message.role === 'user';
           if (message.role === 'system') return null;
@@ -15,15 +23,16 @@ const MessagesList = () => {
           return (
             <div
               id={`message-${i}`}
-              className={`fade-up mb-4 flex items-center ${
+              className={`fade-up mb-4 flex items-start ${
                 isUser ? 'justify-end' : 'justify-start'
               }`}
               key={i}
+              ref={scrollRef}
             >
               {!isUser && <UserCircle size={32} />}
               <div
                 style={{
-                  maxWidth: 'calc(100% - 45px)',
+                  maxWidth: '70%',
                   backgroundColor:
                     message.type === 'ERROR'
                       ? semanticColors.dark.danger[100]
@@ -35,7 +44,7 @@ const MessagesList = () => {
                     : 'ml-2 bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-200'
                 }`}
               >
-                {message.content?.toString()}
+                <Markdown>{message.content?.toString()}</Markdown>
               </div>
               {isUser && <UserCircle size={32} />}
             </div>

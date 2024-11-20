@@ -9,7 +9,7 @@ import { sendMessage } from '@/pages/api/gemini/sendMessage';
 import { EnhancedGenerateContentResponse } from '@google/generative-ai';
 
 export interface Message {
-  role: 'system' | 'assistant' | 'user';
+  role: 'system' | 'user' | 'model';
   type: 'MESSAGE' | 'ERROR';
   content: string | EnhancedGenerateContentResponse | undefined;
 }
@@ -36,7 +36,7 @@ export function GeminiMessagesProvider({ children }: { children: ReactNode }) {
       };
 
       const welcomeMessage: Message = {
-        role: 'assistant',
+        role: 'model',
         type: 'MESSAGE',
         content: 'Hi, How can I help you today?',
       };
@@ -70,9 +70,9 @@ export function GeminiMessagesProvider({ children }: { children: ReactNode }) {
       const reply: Message = {
         content: data.data?.error
           ? data.data?.error.message.toString()
-          : data.data?.candidates[0].toString(),
+          : data.data?.candidates[0].content.parts[0].text,
         type: !data.data?.error ? 'MESSAGE' : 'ERROR',
-        role: 'assistant',
+        role: 'model',
       };
 
       // Add the assistant message to the state
@@ -83,7 +83,7 @@ export function GeminiMessagesProvider({ children }: { children: ReactNode }) {
         ...messages,
         newMessage,
         {
-          role: 'assistant',
+          role: 'model',
           content: `An error occurred: ${error?.toString()}`,
           type: 'ERROR',
         },
