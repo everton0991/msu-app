@@ -6,7 +6,7 @@ import ChatContainer from './chat/ChatContainer';
 
 const Content = () => {
   return (
-    <div className='flex w-full h-min-full flex-col'>
+    <div className='flex w-full flex-col'>
       <Tabs aria-label='Options'>
         <Tab key='chat' title='Chat'>
           <Card>
@@ -21,18 +21,6 @@ const Content = () => {
             <CardBody>
               <CircleOfFifthsContainer />
             </CardBody>
-          </Card>
-        </Tab>
-
-        <Tab key='chords' title='Chords'>
-          <Card>
-            <CardBody>TBD</CardBody>
-          </Card>
-        </Tab>
-
-        <Tab key='scales' title='Scales and Arpeggios'>
-          <Card>
-            <CardBody>TBD</CardBody>
           </Card>
         </Tab>
       </Tabs>

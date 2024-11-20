@@ -1,12 +1,17 @@
 import React from 'react';
 import MessageForm from './MessageForm';
-import { MessagesProvider } from '@/hooks/useMessages';
+// import { OpenAiMessagesProvider } from '@/hooks/openai/useMessages';
+import { GeminiMessagesProvider } from '@/hooks/gemini/useMessages';
+import MessagesList from './MessagesList';
 
 const ChatContainer = () => {
   return (
-    <MessagesProvider>
+    // <OpenAiMessagesProvider>
+    <GeminiMessagesProvider>
+      <MessagesList />
       <MessageForm />
-    </MessagesProvider>
+    </GeminiMessagesProvider>
+    // </OpenAiMessagesProvider>
   );
 };
 

@@ -6,7 +6,7 @@ import {
   useState,
 } from 'react';
 import OpenAI from 'openai';
-import { sendMessage } from '@/pages/api/sendMessage';
+import { sendMessage } from '@/pages/api/openai/sendMessage';
 
 interface ContextProps {
   messages: OpenAI.Chat.ChatCompletionMessageParam[];
@@ -17,7 +17,7 @@ interface ContextProps {
 // TODO Move jsx content to different dir
 const ChatsContext = createContext<Partial<ContextProps>>({});
 
-export function MessagesProvider({ children }: { children: ReactNode }) {
+export function OpenAiMessagesProvider({ children }: { children: ReactNode }) {
   const [messages, setMessages] = useState<
     OpenAI.Chat.ChatCompletionMessageParam[]
   >([]);

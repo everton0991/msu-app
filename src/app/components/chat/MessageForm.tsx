@@ -1,4 +1,4 @@
-import { useMessages } from '@/hooks/useMessages';
+import { useMessages } from '@/hooks/gemini/useMessages';
 import { Button, Input } from '@nextui-org/react';
 import React, { useState } from 'react';
 
@@ -7,7 +7,6 @@ const MessageForm = () => {
   const { addMessage } = useMessages();
 
   const handleSubmit = async (e: any) => {
-    console.log('CLICKED', { message });
     e?.preventDefault();
     addMessage(message);
     setMessage('');
@@ -26,7 +25,8 @@ const MessageForm = () => {
 
       <Button
         size='lg'
-        className='bg-gradient-to-tr from-[#9fb7ff] to-[#9874DC] text-white shadow-lg'
+        isDisabled={!message}
+        className='bg-gradient-to-tr from-[#9fb7ff] to-[#9874DC] text-white shadow-lg disabled:'
         onClick={handleSubmit}
       >
         Send
