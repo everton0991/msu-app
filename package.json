@@ -9,14 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.21.0",
     "@nextui-org/react": "2.4.8",
     "@tonaljs/note": "^4.10.3",
     "caniuse-lite": "^1.0.30001680",
     "framer-motion": "11.0.5",
     "next": "15.0.3",
+    "openai": "^4.72.0",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-circle-of-fifths": "^1.0.2",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-markdown": "^9.0.1",
+    "solar-icon-set": "^1.0.0"
   },
   "devDependencies": {
     "@types/node": "20",
