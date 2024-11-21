@@ -38,7 +38,7 @@ const MessagesList = () => {
                       ? semanticColors.dark.danger[100]
                       : '',
                 }}
-                className={`group relative rounded-lg px-3 py-2 ${
+                className={`group relative rounded-lg px-3 py-2 overflow-scroll ${
                   isUser
                     ? 'from-primary-700 to-primary-600 mr-2 bg-gradient-to-br text-white'
                     : 'ml-2 bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-200'
