@@ -1,8 +1,10 @@
 import { useMessages } from '@/hooks/gemini/useMessages';
 import { Button, Input } from '@nextui-org/react';
+import { useTranslations } from 'next-intl';
 import React, { useState } from 'react';
 
 const MessageForm = () => {
+  const t = useTranslations('Chat');
   const [message, setMessage] = useState('');
   const { addMessage, isLoadingAnswer } = useMessages();
 
@@ -16,8 +18,8 @@ const MessageForm = () => {
     <div className='flex items-center justify-between gap-4'>
       <Input
         type='text'
-        label='Message'
-        placeholder='Type your message'
+        label={t('Message')}
+        placeholder={t('Type your message')}
         value={message}
         disabled={isLoadingAnswer}
         onChange={(e: any) => setMessage(e.target.value)}
