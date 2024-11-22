@@ -30,10 +30,11 @@ const MessageForm = () => {
       <Button
         size='lg'
         isDisabled={!message || isLoadingAnswer}
+        // TODO - Move hex colors to tailwind config
         className='bg-gradient-to-tr from-[#9fb7ff] to-[#9874DC] text-white shadow-lg disabled:'
         onClick={handleSubmit}
       >
-        Send
+        {t('Send')}
       </Button>
     </div>
   );

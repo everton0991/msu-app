@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
 export default async function createMessage(
   req: NextApiRequest,
@@ -6,29 +7,14 @@ export default async function createMessage(
 ) {
   const { message } = req.body;
   const apiKey = process.env.GEMINI_API_KEY;
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-
-  const body = JSON.stringify({
-    contents: [
-      {
-        parts: [{ text: message }],
-      },
-    ],
-  });
+  const genAI = new GoogleGenerativeAI(apiKey || '');
+  const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
   try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body,
-    });
-
-    const data = await response.json();
-    res.status(200).json({ data });
+    const { response } = await model.generateContent(message);
+    res.status(200).json({ data: response });
   } catch (error: any) {
-    // TODO - Assert type correctly
+    // TODO - Assert error type correctly
     res.status(500).json({ error: error.message });
   }
 }
