@@ -13,6 +13,7 @@ const MessagesList = () => {
   }, [messages]);
 
   // TODO - Make height relative to screen
+  // TODO - Add arrow when scroll not at bottom
   return (
     <div>
       <div className='w-full h-[600] pb-3 mx-auto pt-8 overflow-scroll'>

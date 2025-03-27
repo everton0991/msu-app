@@ -65,13 +65,14 @@ export function GeminiMessagesProvider({ children }: { children: ReactNode }) {
 
       // Add the user message to the state so we can see it immediately
       setMessages(newMessages);
-      const data = await sendMessage(newMessage);
-      // TODO - Get message content when model is responsive
+      const {
+        data: { candidates = [], error },
+      } = await sendMessage(newMessage);
+      const [{ content }] = candidates;
+
       const reply: Message = {
-        content: data.data?.error
-          ? data.data?.error.message.toString()
-          : data.data?.candidates[0].content.parts[0].text,
-        type: !data.data?.error ? 'MESSAGE' : 'ERROR',
+        content: error ? error.message.toString() : content.parts[0].text,
+        type: !error ? 'MESSAGE' : 'ERROR',
         role: 'assistant',
       };
 
