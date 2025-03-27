@@ -13,7 +13,9 @@ const Header = () => {
     <Navbar isBordered>
       <NavbarBrand>
         <Link color='foreground' href='/'>
-          <p className='font-bold text-inherit'>Music Studies Utility</p>
+          <p className='font-bold text-inherit'>
+            Random Stuff all in one Place
+          </p>
         </Link>
       </NavbarBrand>
 
