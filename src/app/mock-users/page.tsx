@@ -1,4 +1,5 @@
 import { revalidatePath } from 'next/cache';
+import { auth, currentUser } from '@clerk/nextjs/server';
 
 interface User {
   id: number;
@@ -8,8 +9,12 @@ interface User {
   phone: string;
 }
 
-export default async function UsersServer() {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+export default async function MockUsers() {
+  const authObj = await auth();
+  const userObj = await currentUser();
+
+  console.log({ authObj, userObj });
+
   const response = await fetch(
     'https://67ec15aaaa794fb3222ccaf1.mockapi.io/users'
   );
