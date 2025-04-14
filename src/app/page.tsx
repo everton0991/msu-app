@@ -6,7 +6,7 @@ export default function Home() {
     <main>
       <Header />
 
-      <div className='flex max-w-[1030px] mx-auto p-6'>
+      <div className='max-w-[1030px] mx-auto p-6'>
         <Content />
       </div>
     </main>

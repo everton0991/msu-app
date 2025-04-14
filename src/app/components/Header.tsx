@@ -1,3 +1,5 @@
+'use client';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 import {
   Navbar,
   NavbarBrand,
@@ -12,7 +14,9 @@ const Header = () => {
     <Navbar isBordered>
       <NavbarBrand>
         <Link color='foreground' href='/'>
-          <p className='font-bold text-inherit'>Music Studies Utility</p>
+          <p className='font-bold text-inherit'>
+            Random Stuff all in one Place
+          </p>
         </Link>
       </NavbarBrand>
 
@@ -23,17 +27,17 @@ const Header = () => {
           </Link>
         </NavbarItem>
 
-        <NavbarItem className='hidden lg:flex'>
-          <Link color='foreground' href='#'>
-            Login
-          </Link>
-        </NavbarItem>
+        <SignedOut>
+          <NavbarItem className='hidden lg:flex'>
+            <SignInButton mode='modal' />
+          </NavbarItem>
+        </SignedOut>
 
-        <NavbarItem>
-          <Button as={Link} color='default' href='#' variant='flat'>
-            Sign Up
-          </Button>
-        </NavbarItem>
+        <SignedIn>
+          <NavbarItem className='hidden lg:flex'>
+            <UserButton />
+          </NavbarItem>
+        </SignedIn>
       </NavbarContent>
     </Navbar>
   );
